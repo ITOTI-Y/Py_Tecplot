@@ -27,7 +27,8 @@ def axes_fix(origin = 'center',transform_axes = False):
     完成平面坐标居中和纵向坐标gui'ling
     '''
     dataset = tp.active_frame().dataset
-    axes = tp.active_frame().plot().axes
+    plot = tp.active_frame().plot()
+    axes = plot.axes
     #------------------平面坐标居中------------------ 方法
     def axes_(transform_axes):
         #NO CHANGE
@@ -49,3 +50,4 @@ def axes_fix(origin = 'center',transform_axes = False):
     #闭包函数调用不能在函数定义前
     if origin == 'center':
         return axes_(transform_axes)
+    plot.view.fit()
