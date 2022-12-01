@@ -10,4 +10,3 @@ def creat_streamtraces(replace=True,zone_name='inlet',num = 50):
     if replace:
             streamtraces.delete_all()
     streamtraces.add_on_zone_surface(zones=[zone_index],stream_type=Streamtrace.VolumeLine,num_seed_points=num)
-    print('1')

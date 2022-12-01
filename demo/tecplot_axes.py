@@ -51,3 +51,5 @@ def axes_fix(origin = 'center',transform_axes = False):
     if origin == 'center':
         return axes_(transform_axes)
     plot.view.fit()
+
+#坐标范围重置
