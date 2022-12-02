@@ -1,6 +1,18 @@
 import tecplot as tp
+import numpy as np
 from tecplot.constant import *
 
+#新建frame
+def add_frame(num=(4,3)):
+    a = np.arange(0,(num[0]-1)*9+1,9)
+    b = np.arange(0,(num[1]-1)*8+1,8)
+    for j in range(len(b)):
+        for i in range(len(a)):
+            if i == 0 and j == 0:
+                continue
+            tp.active_page().add_frame(position=(a[i],b[j]),size=(9,8))
+
+#创建流线图
 def creat_streamtraces(replace=True,zone_name='inlet',num = 50):
     frame = tp.active_frame()
     plot = frame.plot()

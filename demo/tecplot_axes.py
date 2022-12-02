@@ -53,3 +53,8 @@ def axes_fix(origin = 'center',transform_axes = False):
     plot.view.fit()
 
 #坐标范围重置
+def resset_range():
+    axes = tp.active_frame().plot().axes
+    axes.x_axis.fit_range()
+    axes.y_axis.fit_range()
+    axes.z_axis.fit_range()
