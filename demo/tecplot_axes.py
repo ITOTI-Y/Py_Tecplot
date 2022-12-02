@@ -42,7 +42,7 @@ def axes_fix(origin = 'center',transform_axes = False):
         transform_z = -dataset.variable(transform_list[2]).min()
         tp.data.operate.execute_equation('{X_fix} =  {' + f'{transform_list[0]}'+'}'+f'{transform_x:+}')
         tp.data.operate.execute_equation('{Y_fix} =  {' + f'{transform_list[1]}'+'}'+f'{transform_y:+}')
-        tp.data.operate.execute_equation('{Z_fix} =  {' + f'{transform_list[2]}'+'}'+f'{transform_z:+}')
+        tp.data.operate.execute_equation('{Z_fix} =  {' + f'{transform_list[2]}'+'}'+f'{transform_z:+}-1.447')
         axes.x_axis.variable = dataset.variable('X_fix')
         axes.y_axis.variable = dataset.variable('Y_fix')
         axes.z_axis.variable = dataset.variable('Z_fix')
@@ -53,7 +53,7 @@ def axes_fix(origin = 'center',transform_axes = False):
     plot.view.fit()
 
 #坐标范围重置
-def resset_range():
+def reset_range():
     axes = tp.active_frame().plot().axes
     axes.x_axis.fit_range()
     axes.y_axis.fit_range()

@@ -11,6 +11,7 @@ def add_frame(num=(4,3)):
             if i == 0 and j == 0:
                 continue
             tp.active_page().add_frame(position=(a[i],b[j]),size=(9,8))
+            tp.active_frame().plot_type = PlotType.Cartesian3D
 
 #创建流线图
 def creat_streamtraces(replace=True,zone_name='inlet',num = 50):
