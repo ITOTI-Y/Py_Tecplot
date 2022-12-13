@@ -1,9 +1,9 @@
 import tecplot as tp
 import numpy as np
-from tecplot.constant import *
+from tecplot.constant import PlotType,Streamtrace
 
 #新建frame
-def add_frame(num=(4,3)):
+def add_frame(num=(3,4)):
     a = np.arange(0,(num[0]-1)*9+1,9)
     b = np.arange(0,(num[1]-1)*8+1,8)
     for j in range(len(b)):
