@@ -6,6 +6,7 @@ import plotly.graph_objects as go
 R = 0.1 # radius of the people
 U = 0.2 # veloctiy of the field
 PPM = 40000 # Expiratory carbon dioxide concentration
+C_env = 400 # Environmental carbon dioxide concentration
 
 def U_stockes(x,y,U = 0.2,R = 0.1):
     a = np.sqrt((x-(-R))**2+(y-0)**2)
@@ -51,7 +52,7 @@ def sim_jet(Total_time = 10,delta_t = 0.005,k = 0.65,U = 0.2,U_origin = [0,0.55]
         u_real_x = res[i][2]+delta_u_real_x
         u_real_y = res[i][3]+delta_u_real_y
         Q2 = np.sqrt(u_real_x**2+u_real_y**2)*np.pi*dim(s)**2/4
-        ppm = PPM*Q/Q2
+        ppm = (PPM*Q+(Q2-Q)*C_env)/Q2
         res.append([x,y,u_real_x,u_real_y,s,dim(s),Q2,ppm])
     return res
 
